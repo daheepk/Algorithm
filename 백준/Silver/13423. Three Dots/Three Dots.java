@@ -11,26 +11,26 @@ class Main {
         while (T-- > 0){
             int N = Integer.parseInt(br.readLine());
             st = new StringTokenizer(br.readLine());
-            List<Integer> arr = new ArrayList<>();
+            int[] arr = new int[N];
 
             for (int i=0; i<N; i++){
-                arr.add(Integer.parseInt(st.nextToken()));
+                arr[i]= Integer.parseInt(st.nextToken());
             }
 
-            Collections.sort(arr);
+            Arrays.sort(arr);
             
             Map<Integer, Boolean> board = new HashMap<>();
             
             for (int i=0; i<N; i++){
-                board.put(arr.get(i), true);
+                board.put(arr[i], true);
             }
 
             int distance = 0, cnt = 0;
             
             for (int i=0; i<N-2; i++){
                 for (int j=i+1; j<N-1; j++){
-                    distance = arr.get(j) - arr.get(i);
-                    boolean flag = board.getOrDefault(arr.get(j)+distance, false);
+                    distance = arr[j] - arr[i];
+                    boolean flag = board.getOrDefault(arr[j]+distance, false);
                     if (flag){
                         cnt++;
                     }
